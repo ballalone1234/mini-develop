@@ -3,7 +3,7 @@
         'name' => 'panique/mini',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '01ae2e0bcc9bf49e08325cb404057358067229e4',
+        'reference' => '45ad8928fdf630a8afaa58980cb731047d31e218',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'panique/mini' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '01ae2e0bcc9bf49e08325cb404057358067229e4',
+            'reference' => '45ad8928fdf630a8afaa58980cb731047d31e218',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
