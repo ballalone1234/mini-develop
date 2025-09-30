@@ -16,7 +16,7 @@ class Helper
      */
     static public function debugPDO($raw_sql, $parameters) {
 
-        $keys = array();
+        $keys = [];
         $values = $parameters;
 
         foreach ($parameters as $key => $value) {
