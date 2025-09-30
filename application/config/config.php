@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Configuration
  *
@@ -12,9 +14,9 @@
  */
 define('ENVIRONMENT', 'development');
 
-if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
+if (ENVIRONMENT === 'development' || ENVIRONMENT === 'dev') {
     error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+    ini_set("display_errors", '1');
 }
 
 /**
@@ -57,4 +59,4 @@ define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'mini');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
-define('DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'utf8mb4');

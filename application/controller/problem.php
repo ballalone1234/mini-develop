@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Class Problem
  * Formerly named "Error", but as PHP 7 does not allow Error as class name anymore (as there's a Error class in the
@@ -16,7 +18,7 @@ class Problem extends Controller
      * PAGE: index
      * This method handles the error page that will be shown when a page is not found
      */
-    public function index()
+    public function index(): void
     {
         // load views
         require APP . 'view/_templates/header.php';
