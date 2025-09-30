@@ -39,16 +39,16 @@
             <tbody>
             <?php foreach ($songs as $song) { ?>
                 <tr>
-                    <td><?php if (isset($song->id)) echo htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php if (isset($song->artist)) echo htmlspecialchars($song->artist, ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php if (isset($song->track)) echo htmlspecialchars($song->track, ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php if (isset($song->id)) echo htmlspecialchars($song->id, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?></td> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
+                    <td><?php if (isset($song->artist)) echo htmlspecialchars($song->artist, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?></td> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
+                    <td><?php if (isset($song->track)) echo htmlspecialchars($song->track, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?></td> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
                     <td>
                         <?php if (isset($song->link)) { ?>
-                            <a href="<?php echo htmlspecialchars($song->link, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($song->link, ENT_QUOTES, 'UTF-8'); ?></a>
+                            <a href="<?php echo htmlspecialchars($song->link, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?>"><?php echo htmlspecialchars($song->link, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?></a> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
                         <?php } ?>
                     </td>
-                    <td><a href="<?php echo URL . 'songs/deletesong/' . htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?>">delete</a></td>
-                    <td><a href="<?php echo URL . 'songs/editsong/' . htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?>">edit</a></td>
+                    <td><a href="<?php echo URL . 'songs/deletesong/' . htmlspecialchars($song->id, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?>">delete</a></td> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
+                    <td><a href="<?php echo URL . 'songs/editsong/' . htmlspecialchars($song->id, ENT_QUOTES | ENT_HTML5, 'UTF-8'); ?>">edit</a></td> <!-- Updated to use ENT_HTML5 for better HTML5 compatibility -->
                 </tr>
             <?php } ?>
             </tbody>

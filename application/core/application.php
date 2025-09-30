@@ -9,7 +9,7 @@ class Application
     private $url_action = null;
 
     /** @var array URL parameters */
-    private $url_params = array();
+    private $url_params = [];
 
     /**
      * "Start" the application:
@@ -40,7 +40,7 @@ class Application
 
                 if (!empty($this->url_params)) {
                     // Call the method and pass arguments to it
-                    call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
+                    call_user_func_array([$this->url_controller, $this->url_action], $this->url_params); // Modern array syntax
                 } else {
                     // If no parameters are given, just call the method without parameters, like $this->home->method();
                     $this->url_controller->{$this->url_action}();
@@ -52,11 +52,13 @@ class Application
                     $this->url_controller->index();
                 }
                 else {
-                    header('location: ' . URL . 'problem');
+                    header('Location: ' . URL . 'problem'); // Use 'Location' with capital L for header
+                    exit; // Added exit after header to prevent further execution
                 }
             }
         } else {
-            header('location: ' . URL . 'problem');
+            header('Location: ' . URL . 'problem'); // Use 'Location' with capital L for header
+            exit; // Added exit after header to prevent further execution
         }
     }
 
@@ -73,10 +75,8 @@ class Application
             $url = explode('/', $url);
 
             // Put URL parts into according properties
-            // By the way, the syntax here is just a short form of if/else, called "Ternary Operators"
-            // @see http://davidwalsh.name/php-shorthand-if-else-ternary-operators
-            $this->url_controller = isset($url[0]) ? $url[0] : null;
-            $this->url_action = isset($url[1]) ? $url[1] : null;
+            $this->url_controller = $url[0] ?? null; // Use null coalescing operator
+            $this->url_action = $url[1] ?? null; // Use null coalescing operator
 
             // Remove controller and action from the split URL
             unset($url[0], $url[1]);

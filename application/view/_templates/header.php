@@ -11,7 +11,7 @@
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
 
     <!-- CSS -->
-    <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
+    <link href="<?= URL; ?>css/style.css" rel="stylesheet"> <!-- Changed to short echo tag for modern syntax -->
 </head>
 <body>
     <!-- logo -->
@@ -21,8 +21,8 @@
 
     <!-- navigation -->
     <div class="navigation">
-        <a href="<?php echo URL; ?>">home</a>
-        <a href="<?php echo URL; ?>home/exampleone">subpage</a>
-        <a href="<?php echo URL; ?>home/exampletwo">subpage 2</a>
-        <a href="<?php echo URL; ?>songs">songs</a>
+        <a href="<?= URL; ?>">home</a> <!-- Changed to short echo tag for modern syntax -->
+        <a href="<?= URL; ?>home/exampleone">subpage</a> <!-- Changed to short echo tag for modern syntax -->
+        <a href="<?= URL; ?>home/exampletwo">subpage 2</a> <!-- Changed to short echo tag for modern syntax -->
+        <a href="<?= URL; ?>songs">songs</a> <!-- Changed to short echo tag for modern syntax -->
     </div>

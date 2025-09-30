@@ -21,7 +21,7 @@ class Songs extends Controller
         $songs = $this->model->getAllSongs();
         $amount_of_songs = $this->model->getAmountOfSongs();
 
-       // load views. within the views we can echo out $songs and $amount_of_songs easily
+        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/header.php';
         require APP . 'view/songs/index.php';
         require APP . 'view/_templates/footer.php';
@@ -44,7 +44,8 @@ class Songs extends Controller
         }
 
         // where to go after song has been added
-        header('location: ' . URL . 'songs/index');
+        header('Location: ' . URL . 'songs/index'); // Changed 'location' to 'Location' for proper header syntax
+        exit(); // Added exit to prevent further script execution after redirect
     }
 
     /**
@@ -65,10 +66,11 @@ class Songs extends Controller
         }
 
         // where to go after song has been deleted
-        header('location: ' . URL . 'songs/index');
+        header('Location: ' . URL . 'songs/index'); // Changed 'location' to 'Location' for proper header syntax
+        exit(); // Added exit to prevent further script execution after redirect
     }
 
-     /**
+    /**
      * ACTION: editSong
      * This method handles what happens when you move to http://yourproject/songs/editsong
      * @param int $song_id Id of the to-edit song
@@ -89,7 +91,8 @@ class Songs extends Controller
             require APP . 'view/_templates/footer.php';
         } else {
             // redirect user to songs index page (as we don't have a song_id)
-            header('location: ' . URL . 'songs/index');
+            header('Location: ' . URL . 'songs/index'); // Changed 'location' to 'Location' for proper header syntax
+            exit(); // Added exit to prevent further script execution after redirect
         }
     }
     
@@ -110,7 +113,8 @@ class Songs extends Controller
         }
 
         // where to go after song has been added
-        header('location: ' . URL . 'songs/index');
+        header('Location: ' . URL . 'songs/index'); // Changed 'location' to 'Location' for proper header syntax
+        exit(); // Added exit to prevent further script execution after redirect
     }
 
     /**

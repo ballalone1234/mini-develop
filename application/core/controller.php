@@ -5,17 +5,17 @@ class Controller
     /**
      * @var null Database Connection
      */
-    public $db = null;
+    public ?PDO $db = null; // Changed to nullable type declaration for better type safety
 
     /**
      * @var null Model
      */
-    public $model = null;
+    public ?Model $model = null; // Changed to nullable type declaration for better type safety
 
     /**
      * Whenever controller is created, open a database connection too and load "the model".
      */
-    function __construct()
+    public function __construct() // Changed to public visibility for constructor
     {
         $this->openDatabaseConnection();
         $this->loadModel();
@@ -30,7 +30,7 @@ class Controller
         // "objects", which means all results will be objects, like this: $result->user_name !
         // For example, fetch mode FETCH_ASSOC would return results like this: $result["user_name] !
         // @see http://www.php.net/manual/en/pdostatement.fetch.php
-        $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
+        $options = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING]; // Modernized array syntax
 
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
@@ -41,7 +41,7 @@ class Controller
      * Loads the "model".
      * @return object model
      */
-    public function loadModel()
+    public function loadModel(): void // Added return type declaration for clarity
     {
         require APP . 'model/model.php';
         // create new "model" (and pass the database connection)

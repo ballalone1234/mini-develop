@@ -12,9 +12,9 @@
  */
 define('ENVIRONMENT', 'development');
 
-if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
+if (ENVIRONMENT === 'development' || ENVIRONMENT === 'dev') { // Changed to strict comparison for better practice
     error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+    ini_set("display_errors", "1"); // Ensured the second parameter is a string
 }
 
 /**

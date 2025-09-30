@@ -1,5 +1,4 @@
-
-    <!-- backlink to repo on GitHub, and affiliate link to Rackspace if you want to support the project -->
+<!-- backlink to repo on GitHub, and affiliate link to Rackspace if you want to support the project -->
     <div class="footer">
         Find <a href="https://github.com/panique/mini">MINI on GitHub</a>.
     </div>
@@ -10,10 +9,10 @@
 
     <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
     <script>
-        var url = "<?php echo URL; ?>";
+        var url = "<?php echo htmlspecialchars(URL, ENT_QUOTES | ENT_HTML5); ?>"; // Use htmlspecialchars for security
     </script>
 
     <!-- our JavaScript -->
-    <script src="<?php echo URL; ?>js/application.js"></script>
+    <script src="<?php echo htmlspecialchars(URL, ENT_QUOTES | ENT_HTML5); ?>js/application.js"></script> // Use htmlspecialchars for security
 </body>
 </html>

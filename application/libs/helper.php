@@ -14,25 +14,25 @@ class Helper
      * @param array $parameters
      * @return string
      */
-    static public function debugPDO($raw_sql, $parameters) {
+    static public function debugPDO(string $raw_sql, array $parameters): string { // Added type hints for parameters and return type
 
-        $keys = array();
+        $keys = []; // Modern array syntax
         $values = $parameters;
 
         foreach ($parameters as $key => $value) {
 
             // check if named parameters (':param') or anonymous parameters ('?') are used
             if (is_string($key)) {
-                $keys[] = '/' . $key . '/';
+                $keys[] = '/' . preg_quote($key, '/') . '/'; // Use preg_quote to escape special characters
             } else {
                 $keys[] = '/[?]/';
             }
 
             // bring parameter into human-readable format
             if (is_string($value)) {
-                $values[$key] = "'" . $value . "'";
+                $values[$key] = "'" . addslashes($value) . "'"; // Use addslashes to escape single quotes
             } elseif (is_array($value)) {
-                $values[$key] = implode(',', $value);
+                $values[$key] = implode(',', array_map('addslashes', $value)); // Escape each value in the array
             } elseif (is_null($value)) {
                 $values[$key] = 'NULL';
             }
